@@ -12,7 +12,7 @@ class Player():
         # set initial location
         self.location = start_location(self)
 
-    def set_name(self, name):
+    def set_name(self, name: str):
         self.name = name
     
     def get_name(self):

@@ -4,10 +4,11 @@ Handles saving and loading game states.
 import pickle
 from datetime import datetime
 import os
+from player import Player
 
 SAVE_DIR = 'saves/'
 
-def save_game(player, filename=None):
+def save_game(player: Player, filename=None):
     os.makedirs(SAVE_DIR, exist_ok=True)
     if filename is None:
         # Generate default filename with current date

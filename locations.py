@@ -3,13 +3,14 @@ Defines different locations in the game, their descriptions,
 and possible actions.
 """
 from error_handler import InvalidActionError
+from player import Player
 
 class Location:
-    def __init__(self, description):
+    def __init__(self, description:str):
         self.description = description
         self.actions = dict()
 
-    def add_action(self, action, outcome):
+    def add_action(self, action:str, outcome:function):
         self.actions[action] = outcome
 
     def list_actions(self):
@@ -35,25 +36,25 @@ class Location:
         else:
             raise InvalidActionError(choice)
 
-    def process_action(self, action, player):
+    def process_action(self, action:str, player:Player):
         if action in self.actions:
             print(self.actions[action])
             return self.actions[action](player)
         else:
             raise InvalidActionError(action)
     
-def start_location(player):
+def start_location():
     loc = Location("You are at the entrance of a dark forest.")
     loc.add_action("enter", forest_location)
     return loc
 
-def forest_location(player):
+def forest_location():
     loc = Location("You are in the forest. There is a path ahead.")
     loc.add_action("follow path", path_location)
     loc.add_action("go back", start_location)
     return loc
 
-def path_location(player):
+def path_location():
     loc = Location("You follow the path and find an ancient altar.")
     # Add more actions and locations
     return loc

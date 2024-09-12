@@ -9,7 +9,7 @@ from error_handler import *
 from utils import *
 from datetime import datetime
 
-def view_character(player):
+def view_character(player: Player):
     print(player.get_name())
 
 def choose_save_file():
