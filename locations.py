@@ -10,7 +10,7 @@ class Location:
         self.description = description
         self.actions = dict()
 
-    def add_action(self, action:str, outcome:function):
+    def add_action(self, action:str, outcome:callable):
         self.actions[action] = outcome
 
     def list_actions(self):
@@ -36,10 +36,10 @@ class Location:
         else:
             raise InvalidActionError(choice)
 
-    def process_action(self, action:str, player:Player):
+    def process_action(self, action:str):
         if action in self.actions:
             print(self.actions[action])
-            return self.actions[action](player)
+            return self.actions[action]()
         else:
             raise InvalidActionError(action)
     

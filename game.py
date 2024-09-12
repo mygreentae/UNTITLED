@@ -69,8 +69,8 @@ def main():
 
                 if action == "save":
                     default_filename = datetime.now().strftime("%Y-%m-%d") + "_save.pkl"
-                    filename = input(f"Enter a name for your save file (or leave blank for default: \
-                                        '{default_filename}'): ").strip()
+                    filename = \
+                        input(f"Enter a name for your save file (or leave blank for default: '{default_filename}'): ").strip()
                     filename = filename if filename else default_filename
                     save_game(player, filename)
                     print(f"Game saved as '{filename}'. See you next time!")

@@ -10,7 +10,7 @@ class Player():
         self.name = name
         self.inventory = []
         # set initial location
-        self.location = start_location(self)
+        self.location = start_location()
 
     def set_name(self, name: str):
         self.name = name
